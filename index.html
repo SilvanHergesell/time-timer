@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Timer</title>
+  <link rel="stylesheet" href="/src/style.css" />
+  <style>
+    /* Kritische Styles fuer den ersten Paint */
+    html, body {
+      margin: 0;
+      background: #1c1c1c;
+    }
+
+    body.app-loading #app {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body class="app-loading">
+  <input id="slice-color-input" type="text" value="#19d9d6" aria-label="Farbcode fuer das Slice" title="Farbcode fuer das Slice" placeholder="#19d9d6" />
+  <div id="app">
+    <div class="timer-wrapper">
+      <svg id="time-timer" viewBox="0 0 200 200" width="400" height="400">
+        <circle id="dial-bg" cx="100" cy="100" r="95" />
+        <path id="slice"></path>
+        <g id="ticks"></g>
+      </svg>
+      <div id="display">15:00</div>
+      <div class="controls">
+        <div class="control-row">
+          <input id="minutes-slider" type="range" min="0" max="60" step="1" value="15" aria-label="Minuten" title="Minuten" />
+          <input id="minutes-input" type="number" min="0" max="60" step="1" value="15" aria-label="Minutenzahl" title="Minutenzahl" />
+        </div>
+        <div class="control-row">
+          <select id="dial-scale" aria-label="Kreis-Skala" title="Kreis-Skala">
+            <option value="120">120</option>
+            <option value="60" selected>60</option>
+            <option value="30">30</option>
+          </select>
+          <button id="start-pause" type="button" aria-pressed="false" aria-label="Timer starten oder pausieren" title="Start/Pause">Start</button>
+        </div>
+        <div class="control-row">
+          <div></div>
+          <button id="toggle-display" type="button" aria-pressed="true" aria-label="Anzeige ein- oder ausblenden" title="Anzeige ein/aus">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M1.5 12S5.5 5.5 12 5.5 22.5 12 22.5 12 18.5 18.5 12 18.5 1.5 12 1.5 12Z" />
+              <circle cx="12" cy="12" r="3.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

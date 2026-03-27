@@ -1,0 +1,163 @@
+:root {
+  background-color: #1c1c1c; /* Klassisches Manim-Grau/Schwarz */
+}
+
+body {
+  margin: 0;
+}
+
+#slice-color-input {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 120px;
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: 0.9rem system-ui, -apple-system, sans-serif;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.timer-wrapper {
+  position: relative;
+  width: 400px;
+  padding-bottom: 210px;
+}
+
+#time-timer {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#dial-bg {
+  fill: #222;
+  stroke: #444;
+  stroke-width: 1;
+}
+
+#slice {
+  fill: rgb(25, 217, 214); /* eigentliche Keil-Farbe */
+  filter: drop-shadow(0 0 5px rgba(25, 217, 214, 0.4));
+  /* d-Transition erzeugt in Browsern oft Path-Morphing-Artefakte */
+  transition: filter 0.2s ease;
+}
+
+#display {
+  position: absolute;
+  bottom: -78px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #eee;
+  font-family: 'Cambria', 'Georgia', serif; /* Serif-Schrift für Mathe-Look */
+  font-size: 2rem;
+  z-index: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+#display.is-hidden {
+  display: none;
+}
+
+#ticks line {
+  stroke: #6f6f6f;
+  stroke-width: 0.9;
+}
+
+#ticks .tick-major {
+  stroke: #a3a3a3;
+  stroke-width: 1.4;
+}
+
+#ticks text {
+  fill: #c7c7c7;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 7px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  user-select: none;
+}
+
+.controls {
+  position: absolute;
+  bottom: -210px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  color: #ddd;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#minutes-input,
+#minutes-slider,
+#dial-scale {
+  width: 100%;
+}
+
+#minutes-input {
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+#dial-scale {
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+#start-pause,
+#toggle-display {
+  display: grid;
+  place-items: center;
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 0;
+  min-height: 34px;
+  cursor: pointer;
+}
+
+#start-pause {
+  font: inherit;
+  padding: 0 12px;
+}
+
+#toggle-display svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+#toggle-display[aria-pressed="false"] {
+  color: #777;
+}
+
+#toggle-display[aria-pressed="false"] svg {
+  opacity: 0.55;
+}
